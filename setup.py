@@ -110,7 +110,7 @@ def create_features_folder():
                 file.write("""Feature: Search Google
 
 @smoke
-Scenario: Search for "kamran ghaffar" on Google and click the first link
+Scenario: Search for kamran ghaffar on Google and click the first link
     Given the user is on the Google homepage
     When the user searches for "kamran ghaffar"
     Then the user clicks on the first search result
@@ -130,7 +130,7 @@ from selenium.webdriver.common.keys import Keys
 def step_given_user_on_google_homepage(context):
     context.driver.get("https://www.google.com")
 
-@when('the user searches for "kamran ghaffar"')
+@when('the user searches for kamran ghaffar')
 def step_when_user_searches(context):
     search_box = context.driver.find_element(By.NAME, "q")
     search_box.send_keys("kamran ghaffar" + Keys.RETURN)
