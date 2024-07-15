@@ -37,6 +37,7 @@ def setup_allure():
             print("Allure already exists. Skipping download.")
         else:
             print("Downloading Allure...")
+            print("If setting up the Allure path fails due to access permissions, please set it up manually. Go to Environment Variables, find the 'Path' variable, and add the Allure path up to the 'bin' directory. You can verify the setup by running allure --version in the command prompt")
             urllib.request.urlretrieve(allure_url, allure_zip)
             print("Extracting Allure...")
             with zipfile.ZipFile(allure_zip, 'r') as zip_ref:
@@ -271,11 +272,11 @@ def send_teams_webhook(passed_scenarios, failed_scenarios):
     webhook_url = configuration.configuration_system.webhook_url
 
     # Format message for Teams
-    message = f"Total passed Features: {len(passed_scenarios)}\n"
-    message += f"Total failed Features: {len(failed_scenarios)}\n"
-    message += "Failed Features titles:\n"
+    message = f"Total passed Features: {len(passed_scenarios)}"
+    message += f"Total failed Features: {len(failed_scenarios)}"
+    message += "Failed Features titles:"
     for scenario in failed_scenarios:
-        message += f"- {scenario.name}\n"
+        message += f"- {scenario.name}"
 
     # Payload for Microsoft Teams
     payload = {
@@ -306,7 +307,10 @@ def create_configuration_file():
         if not os.path.exists(configuration_file_path):
             with open(configuration_file_path, 'w') as file:
                 file.write("""class configuration_system:
-    webhook_url = "https://hulhub2.webhook.office.com/webhookb2/ddb52dda-66af-4d7f-a9c7-83683d8746ca@26521256-a7de-4702-a9f8-eace52025924/IncomingWebhook/9324409e882945178e9e72694a7a35cb/ae996ba4-1839-42f7-a024-a875284e262e"
+    webhook_url = "add webhook here"
+    screenshot = True
+    report = true
+    
 """)
             print(f"Created configuration file: {configuration_file_path}")
         else:
@@ -324,7 +328,11 @@ import socketserver
 import threading
 import webbrowser
 import time
-from features.steps.BeelinksTickets import generate_random_string
+import random
+import string
+
+def generate_random_string(length=10):
+    return ''.join(random.choices(string.ascii_letters, k=length))
 
 random_id = generate_random_string(3)
 
