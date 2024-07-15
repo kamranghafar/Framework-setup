@@ -112,7 +112,7 @@ def create_features_folder():
 @smoke
 Scenario: Search for kamran ghaffar on Google and click the first link
     Given the user is on the Google homepage
-    When the user searches for "kamran ghaffar"
+    When the user searches for kamran ghaffar
     Then the user clicks on the first search result
 """)
             print(f"Created feature file: {feature_file_path}")
