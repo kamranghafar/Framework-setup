@@ -55,6 +55,7 @@ def setup_allure():
         create_run_testcases_script()
     except Exception as e:
         print(f"Error setting up Allure: {str(e)}")
+        print("setting up the Allure path fails due to access permissions, please set it up manually. Go to Environment Variables, find the 'Path' variable, and add the Allure path up to the 'bin' directory. You can verify the setup by running allure --version in the command prompt")
 
 def install_java():
     try:
