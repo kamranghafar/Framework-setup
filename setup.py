@@ -310,7 +310,7 @@ def create_configuration_file():
                 file.write("""class configuration_system:
     webhook_url = "add webhook here"
     screenshot = True
-    report = true
+    report = False
     
 """)
             print(f"Created configuration file: {configuration_file_path}")
