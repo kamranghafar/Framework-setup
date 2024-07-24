@@ -15,8 +15,7 @@ This manual guides you through setting up and using a test automation framework 
 
 ### Step 1: Download the Setup Script
 
-1. Create a new file named `setup.py`.
-2. Copy and paste the provided setup code into `setup.py`.
+1. Create a new file named `setup.py `Copy and paste the provided setup code into `setup.py OR download the project.
 
 ### Step 2: Run the Setup Script
 
