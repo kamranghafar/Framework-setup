@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 
 @given('the user is on the Google homepage')
 def step_given_user_on_google_homepage(context):
-    pass
+    context.driver.get("https://www.google.com/")
 
 @when('the user searches for kamran ghaffar')
 def step_when_user_searches(context):
