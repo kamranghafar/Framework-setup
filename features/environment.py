@@ -25,7 +25,7 @@ def before_feature(context, feature):
 
 def before_scenario(context, scenario):
     browser = context.config.userdata.get("browser", configuration_system.select_browser).lower()
-    headless = context.config.userdata.get("headless", configuration_system.headless_option).lower() == "False"
+    headless = context.config.userdata.get("headless", configuration_system.headless_option).lower()
 
     try:
         if browser == "chrome":

@@ -3,5 +3,5 @@ class configuration_system:
     screenshot = True
     report = False
     select_browser = "edge"
-    headless_option = "true"
+    headless_option = "True"
     
